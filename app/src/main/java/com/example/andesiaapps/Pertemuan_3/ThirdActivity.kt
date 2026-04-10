@@ -28,7 +28,7 @@ class ThirdActivity : AppCompatActivity() {
 
         binding.btnKirim.setOnClickListener {
             //Mengambil value dari inputNama dan menampilkan di Logcat
-            val nomor = binding.inputNoTujuan.text
+            val nomor = binding.InputNoTujuan.text
 
             Toast.makeText(this, "pesan dikirim ke nomor = $nomor", Toast.LENGTH_SHORT).show()
         }
