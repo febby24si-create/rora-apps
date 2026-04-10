@@ -1,5 +1,6 @@
 package com.example.andesiaapps.Pertemuan_3
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -31,6 +32,8 @@ class ThirdActivity : AppCompatActivity() {
             val nomor = binding.InputNoTujuan.text
 
             Toast.makeText(this, "pesan dikirim ke nomor = $nomor", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ThirdResultActivity::class.java)
+            startActivity(intent)
         }
     }
 }
