@@ -32,6 +32,7 @@ class WebViewActivity : AppCompatActivity() {
             } else if (scrollY < oldScrollY) {
                 binding.appBar.setExpanded(true, true)
             }
+
         }
     }
 
