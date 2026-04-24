@@ -33,6 +33,7 @@ class WebViewActivity : AppCompatActivity() {
                 binding.appBar.setExpanded(true, true)
             }
 
+
         }
     }
 
