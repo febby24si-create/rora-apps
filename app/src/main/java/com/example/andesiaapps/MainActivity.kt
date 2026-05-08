@@ -6,8 +6,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.andesiaapps.Pertemuan_5.FifthActivity
+import com.example.andesiaapps.Home.Pertemuan_5.FifthActivity
 import com.example.andesiaapps.databinding.ActivityMainBinding
+import com.example.andesiaapps.Home.Pertemuan_7.SeventhActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -29,8 +30,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FifthActivity::class.java)
             startActivity(intent)
         }
-
-        // (Opsional) Tombol Kirim untuk editTextPhone
+        // Tombol ke SeventhActivity
+        binding.btnToSeventh.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
+            startActivity(intent)
+        }
+        // Tombol Kirim untuk editTextPhone
         binding.button.setOnClickListener {
             val nomor = binding.editTextPhone.text.toString()
             android.widget.Toast.makeText(this, "Nomor: $nomor", android.widget.Toast.LENGTH_SHORT).show()

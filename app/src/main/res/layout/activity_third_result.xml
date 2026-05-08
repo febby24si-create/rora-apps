@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/warna_bg"
     android:padding="24dp"
-    tools:context=".Pertemuan_3.ThirdResultActivity">
+    tools:context=".Home.Pertemuan_3.ThirdResultActivity">
 
 
     <ImageView

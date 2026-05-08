@@ -3,4 +3,6 @@
     <string name="judul">Andesia Apps</string>
     <string name="output">Kode Berhasil Dikirim</string>
     <string name="output_anak">Silahkan periksa kembali nomor anda</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

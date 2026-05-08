@@ -20,7 +20,7 @@ class AuthActivity : AppCompatActivity() {
 
         // Jika sudah login, langsung ke MainActivity
         if (sharedPref.getBoolean("isLogin", false)) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, BaseActivity::class.java))
             finish()
         }
 
@@ -34,7 +34,7 @@ class AuthActivity : AppCompatActivity() {
                 editor.putString("username", username)
                 editor.apply()
 
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, BaseActivity::class.java))
                 finish()
             } else {
                 AlertDialog.Builder(this)

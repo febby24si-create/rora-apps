@@ -1,6 +1,9 @@
-package com.example.andesiaapps.Pertemuan_5
+package com.example.andesiaapps.Home.Pertemuan_5
 
+import android.R
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.view.MenuItem
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
@@ -27,7 +30,7 @@ class WebViewActivity : AppCompatActivity() {
 
         // Improvisasi: WebViewClient dengan error handling dan loading indicator
         binding.webView.webViewClient = object : WebViewClient() {
-            override fun onPageStarted(view: WebView?, url: String?, favicon: android.graphics.Bitmap?) {
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 // Indikator loading sederhana
                 Toast.makeText(this@WebViewActivity, "Memuat halaman...", Toast.LENGTH_SHORT).show()
@@ -94,9 +97,9 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> {
+            R.id.home -> {
                 onBackPressed()
                 true
             }

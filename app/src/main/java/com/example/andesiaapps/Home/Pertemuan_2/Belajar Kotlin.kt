@@ -1,4 +1,4 @@
-package com.example.andesiaapps.Pertemuan_2
+package com.example.andesiaapps.Home.Pertemuan_2
 
 fun main() {
     println("Hi rekan-rekan...")
