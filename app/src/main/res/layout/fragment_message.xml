@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_auth"
+    android:background="#0F172A"
     tools:context=".Message.MessageFragment">
 
-    <TextView
-        android:id="@+id/tvMessage"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Ini fragment message"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
-        android:textAlignment="center"/>
+        app:elevation="0dp"
+        android:background="@color/colorPrimary">
 
-</FrameLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Messages"
+            app:titleTextColor="#F8FAFC"
+            app:titleCentered="true" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ListView
+        android:id="@+id/listMessageItems"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/item_message" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

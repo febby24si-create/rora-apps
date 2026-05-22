@@ -27,8 +27,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // PERBAIKAN 1: Atur judul langsung ke Toolbar lokal Fragment,
-        // tanpa perlu setSupportActionBar ke Activity induk.
         binding.toolbar.title = "Home"
 
         // Tombol ke FifthActivity
