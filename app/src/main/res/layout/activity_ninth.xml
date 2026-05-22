@@ -22,13 +22,13 @@
         app:titleTextColor="@android:color/white" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/textInputLayoutName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="32dp"
-        android:hint="Email"
+        android:layout_marginTop="24dp"
+        android:hint="Nama Lengkap"
         app:boxCornerRadiusBottomEnd="12dp"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
@@ -36,6 +36,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:startIconDrawable="@drawable/ic_edit"
+        app:startIconTint="?attr/colorControlNormal">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:paddingVertical="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:hint="Email"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutName"
         app:startIconDrawable="@drawable/ic_edit"
         app:startIconTint="?attr/colorControlNormal">
 
@@ -62,28 +88,17 @@
         app:iconGravity="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="32dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroupFilter"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:paddingHorizontal="24dp"
         app:chipSpacingHorizontal="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
@@ -107,7 +122,100 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Belum Dibaca" />
-
     </com.google.android.material.chip.ChipGroup>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroupFilter" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/menuGrid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:columnCount="3"
+        app:useDefaultMargins="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider">
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Menu 1"
+            android:textSize="12sp"
+            android:paddingVertical="16dp"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_home"
+            app:iconGravity="top"
+            app:iconSize="40dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Menu 2"
+            android:textSize="12sp"
+            android:paddingVertical="16dp"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_person"
+            app:iconGravity="top"
+            app:iconSize="40dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Menu 3"
+            android:textSize="12sp"
+            android:paddingVertical="16dp"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_settings"
+            app:iconGravity="top"
+            app:iconSize="40dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Menu 4"
+            android:textSize="12sp"
+            android:paddingVertical="16dp"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_notifications"
+            app:iconGravity="top"
+            app:iconSize="40dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Menu 5"
+            android:textSize="12sp"
+            android:paddingVertical="16dp"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_chat"
+            app:iconGravity="top"
+            app:iconSize="40dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Menu 6"
+            android:textSize="12sp"
+            android:paddingVertical="16dp"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_info"
+            app:iconGravity="top"
+            app:iconSize="40dp"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal" />
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
