@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.andesiaapps.Home.Pertemuan_5.FifthActivity
 import com.example.andesiaapps.databinding.ActivityMainBinding
 import com.example.andesiaapps.Home.Pertemuan_7.SeventhActivity
+import com.example.andesiaapps.Home.Pertemuan_9.NinthActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             val nomor = binding.editTextPhone.text.toString()
             android.widget.Toast.makeText(this, "Nomor: $nomor", android.widget.Toast.LENGTH_SHORT).show()
+        }
+        binding.btnToNinth.setOnClickListener {
+            val intent = Intent(this, NinthActivity::class.java)
+            startActivity(intent)
         }
     }
 }
