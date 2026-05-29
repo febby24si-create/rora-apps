@@ -200,6 +200,24 @@
                     app:iconTint="@color/colorPrimary"
                     app:layout_columnWeight="1" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToTenth"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="16dp"
+                    android:text="Pertemuan 10\n(TabLayout)"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    app:cornerRadius="14dp"
+                    app:icon="@drawable/ic_edit"
+                    app:iconGravity="top"
+                    app:iconPadding="8dp"
+                    app:strokeColor="@color/colorPrimary"
+                    app:iconTint="@color/colorPrimary"
+                    app:layout_columnWeight="1" />
+
             </androidx.gridlayout.widget.GridLayout>
 
         </LinearLayout>

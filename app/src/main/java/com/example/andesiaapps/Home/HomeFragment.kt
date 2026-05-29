@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.andesiaapps.Home.Pertemuan_10.TenthActivity
 import com.example.andesiaapps.Home.Pertemuan_5.FifthActivity
 import com.example.andesiaapps.Home.Pertemuan_7.SeventhActivity
 import com.example.andesiaapps.Home.Pertemuan_9.NinthActivity
@@ -44,6 +45,11 @@ class HomeFragment : Fragment() {
         // Tombol ke NinthActivity
         binding.btnToNinth.setOnClickListener {
             val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+        // Tombol ke TenthActivity
+        binding.btnToTenth.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
     }

@@ -18,4 +18,5 @@
     <color name="warna_bg">#009688</color>
     <color name="warna_btn">#009688</color>
     <color name="yellow">#FFEB3B</color>
+    <color name="black">#000000</color>
 </resources>
