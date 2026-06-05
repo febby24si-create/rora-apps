@@ -38,7 +38,6 @@ class HomeFragment : Fragment() {
             loadCatFact()
         }
 
-
         // Tombol ke FifthActivity
         binding.btnToFifth.setOnClickListener {
             val intent = Intent(requireContext(), FifthActivity::class.java)
