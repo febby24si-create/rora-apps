@@ -19,4 +19,6 @@
     <color name="warna_btn">#009688</color>
     <color name="yellow">#FFEB3B</color>
     <color name="black">#000000</color>
+    <color name="title_gradient">#6200EE</color>
+    <color name="button_gradient">#6200EE</color>
 </resources>

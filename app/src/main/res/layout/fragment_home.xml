@@ -9,6 +9,7 @@
     android:background="@color/backgroundColor"
     tools:context=".Home.HomeFragment">
 
+    <!-- Background Header -->
     <View
         android:id="@+id/background_header"
         android:layout_width="0dp"
@@ -16,8 +17,9 @@
         android:background="@drawable/bg_header_wave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -29,16 +31,17 @@
         app:title="Dashboard"
         app:titleTextColor="@color/white" />
 
+    <!-- Header Text Container -->
     <LinearLayout
         android:id="@+id/headerTextContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TextView
             android:id="@+id/tvWelcome"
@@ -46,8 +49,8 @@
             android:layout_height="wrap_content"
             android:text="Selamat Datang 👋"
             android:textColor="@color/black_auth"
-            android:textStyle="bold"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvHome"
@@ -61,11 +64,12 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- NestedScrollView -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
         android:layout_marginTop="16dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,14 +81,15 @@
             android:orientation="vertical"
             android:paddingBottom="24dp">
 
+            <!-- Card Aksi Cepat -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginVertical="8dp"
+                app:cardBackgroundColor="@color/surfaceColor"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="@color/surfaceColor">
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -96,29 +101,29 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Aksi Cepat"
+                        android:textColor="@color/textPrimary"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/textPrimary" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="Kirimkan data atau laporan pertemuan terupdate ke sistem."
-                        android:textSize="12sp"
-                        android:textColor="@color/textSecondary" />
+                        android:textColor="@color/textSecondary"
+                        android:textSize="12sp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/warna_btn"
                         android:paddingVertical="12dp"
                         android:text="Kirim Sekarang"
+                        android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold"
-                        android:backgroundTint="@color/warna_btn"
-                        android:textColor="@color/white"
                         app:cornerRadius="10dp"
                         app:icon="@drawable/ic_login"
                         app:iconGravity="textStart"
@@ -127,6 +132,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Daftar Pertemuan Kelas Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -134,16 +140,17 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:text="Daftar Pertemuan Kelas"
+                android:textColor="@color/textSecondary"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/textSecondary" />
+                android:textStyle="bold" />
 
+            <!-- Grid Layout Buttons -->
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="16dp"
-                app:columnCount="2"
                 app:alignmentMode="alignBounds"
+                app:columnCount="2"
                 app:useDefaultMargins="true">
 
                 <com.google.android.material.button.MaterialButton
@@ -151,76 +158,134 @@
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:paddingVertical="16dp"
                     android:text="Pertemuan 5\n(Toolbar)"
-                    android:textSize="13sp"
-                    android:gravity="center"
                     android:textColor="@color/colorPrimary"
+                    android:textSize="13sp"
                     app:cornerRadius="14dp"
                     app:icon="@drawable/ic_edit"
                     app:iconGravity="top"
                     app:iconPadding="8dp"
-                    app:strokeColor="@color/colorPrimary"
                     app:iconTint="@color/colorPrimary"
-                    app:layout_columnWeight="1" />
+                    app:layout_columnWeight="1"
+                    app:strokeColor="@color/colorPrimary" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnToSeventh"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:paddingVertical="16dp"
                     android:text="Pertemuan 7\n(Lanjutan)"
-                    android:textSize="13sp"
-                    android:gravity="center"
                     android:textColor="@color/colorPrimary"
+                    android:textSize="13sp"
                     app:cornerRadius="14dp"
                     app:icon="@drawable/ic_edit"
                     app:iconGravity="top"
                     app:iconPadding="8dp"
-                    app:strokeColor="@color/colorPrimary"
                     app:iconTint="@color/colorPrimary"
-                    app:layout_columnWeight="1" />
+                    app:layout_columnWeight="1"
+                    app:strokeColor="@color/colorPrimary" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnToNinth"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:paddingVertical="16dp"
                     android:text="Pertemuan 9\n(Advanced)"
-                    android:textSize="13sp"
-                    android:gravity="center"
                     android:textColor="@color/colorPrimary"
+                    android:textSize="13sp"
                     app:cornerRadius="14dp"
                     app:icon="@drawable/ic_edit"
                     app:iconGravity="top"
                     app:iconPadding="8dp"
-                    app:strokeColor="@color/colorPrimary"
                     app:iconTint="@color/colorPrimary"
-                    app:layout_columnWeight="1" />
+                    app:layout_columnWeight="1"
+                    app:strokeColor="@color/colorPrimary" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnToTenth"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:paddingVertical="16dp"
                     android:text="Pertemuan 10\n(TabLayout)"
-                    android:textSize="13sp"
-                    android:gravity="center"
                     android:textColor="@color/colorPrimary"
+                    android:textSize="13sp"
                     app:cornerRadius="14dp"
                     app:icon="@drawable/ic_edit"
                     app:iconGravity="top"
                     app:iconPadding="8dp"
-                    app:strokeColor="@color/colorPrimary"
                     app:iconTint="@color/colorPrimary"
-                    app:layout_columnWeight="1" />
+                    app:layout_columnWeight="1"
+                    app:strokeColor="@color/colorPrimary" />
 
             </androidx.gridlayout.widget.GridLayout>
 
+            <!-- Cat Fact Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/surfaceColor"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🐱 Fakta Kucing Hari Ini"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCatFact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:text="Loading cat fact..."
+                        android:textAlignment="center"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="4dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRefresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@color/warna_btn"
+                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="24dp"
+                        android:text="Refresh"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="25dp"
+                        app:icon="@drawable/ic_refresh"
+                        app:iconGravity="textStart"
+                        app:iconPadding="8dp"
+                        app:iconTint="@color/white" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

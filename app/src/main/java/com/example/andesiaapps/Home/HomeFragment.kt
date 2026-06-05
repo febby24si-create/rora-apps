@@ -2,15 +2,19 @@ package com.example.andesiaapps.Home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import com.example.andesiaapps.Home.Pertemuan_10.TenthActivity
 import com.example.andesiaapps.Home.Pertemuan_5.FifthActivity
 import com.example.andesiaapps.Home.Pertemuan_7.SeventhActivity
 import com.example.andesiaapps.Home.Pertemuan_9.NinthActivity
+import com.example.andesiaapps.data.api.CatFactApiClient
 import com.example.andesiaapps.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -29,6 +33,10 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.toolbar.title = "Home"
+        loadCatFact()
+        binding.btnRefresh.setOnClickListener {
+            loadCatFact()
+        }
 
         // Tombol ke FifthActivity
         binding.btnToFifth.setOnClickListener {
@@ -54,7 +62,19 @@ class HomeFragment : Fragment() {
         }
     }
 
-    // PERBAIKAN 2: Wajib bersihkan binding di onDestroyView untuk mencegah kebocoran memori
+    private fun loadCatFact() {
+        lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+// Debug log
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+            }
+        }
+        // PERBAIKAN 2: Wajib bersihkan binding di onDestroyView untuk mencegah kebocoran memori
+
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
