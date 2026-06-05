@@ -7,12 +7,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.andesiaapps.Home.Pertemuan_10.TenthActivity
 import com.example.andesiaapps.Home.Pertemuan_5.FifthActivity
 import com.example.andesiaapps.Home.Pertemuan_7.SeventhActivity
 import com.example.andesiaapps.Home.Pertemuan_9.NinthActivity
+import com.example.andesiaapps.Home.photo.PhotoAdapter
 import com.example.andesiaapps.data.api.CatFactApiClient
+import com.example.andesiaapps.data.api.PhotoApiClient
 import com.example.andesiaapps.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
 
@@ -60,21 +65,43 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
+        loadPhoto()
     }
 
     private fun loadCatFact() {
         lifecycleScope.launch {
             try {
                 val response = CatFactApiClient.apiService.getCatFact()
-// Debug log
+
                 binding.tvCatFact.text = "\"${response.fact}\""
             } catch (e: Exception) {
                 binding.tvCatFact.text = "Gagal mengambil fakta kucing."
             }
         }
-        // PERBAIKAN 2: Wajib bersihkan binding di onDestroyView untuk mencegah kebocoran memori
-
     }
+
+    private fun loadPhoto() {
+        lifecycleScope.launch {
+            try {
+                val photos = PhotoApiClient.PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+
+                /** List Tampil Vertical*/
+//                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+
+                /** List Tampil Horizontal */
+//                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+                /** List Tampil Grid */
+                binding.rvGallery.layoutManager = GridLayoutManager(requireContext(), 2)
+
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
