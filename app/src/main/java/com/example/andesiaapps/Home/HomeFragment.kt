@@ -69,35 +69,36 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadCatFact() {
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val response = CatFactApiClient.apiService.getCatFact()
 
-                binding.tvCatFact.text = "\"${response.fact}\""
+                _binding?.tvCatFact?.text = "\"${response.fact}\""
+
             } catch (e: Exception) {
-                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+                _binding?.tvCatFact?.text = "Gagal mengambil fakta kucing."
             }
         }
     }
 
     private fun loadPhoto() {
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val photos = PhotoApiClient.PhotoApiClient.apiService.getPhotos()
-                val adapter = PhotoAdapter(photos)
-                binding.rvGallery.adapter = adapter
 
-                /** List Tampil Vertical*/
-//                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+                _binding?.rvGallery?.adapter = PhotoAdapter(photos)
 
-                /** List Tampil Horizontal */
-//                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
-                /** List Tampil Grid */
-                binding.rvGallery.layoutManager = GridLayoutManager(requireContext(), 2)
+                _binding?.rvGallery?.layoutManager =
+                    GridLayoutManager(requireContext(), 2)
 
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+                if (isAdded) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Gagal memuat gambar",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.example.andesiaapps
 
+
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.andesiaapps.Home.HomeFragment
 import com.example.andesiaapps.Message.MessageFragment
 import com.example.andesiaapps.More.MoreFragment
+import com.example.andesiaapps.Note.NoteFragment
 import com.example.andesiaapps.databinding.ActivityBaseBinding
 import com.example.andesiaapps.databinding.ActivitySeventhBinding
 
@@ -42,6 +44,11 @@ class BaseActivity : AppCompatActivity() {
                     Toast.makeText(this, "More Clicked", Toast.LENGTH_SHORT).show()
                     true
                 }
+                R.id.note -> {
+                    replaceFragment(NoteFragment())
+                    true
+                }
+
                 else -> false // return false jika item tidak ada yang di klik
             }
         }
