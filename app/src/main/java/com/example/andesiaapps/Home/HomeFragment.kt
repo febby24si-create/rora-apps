@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.andesiaapps.Home.Pertemuan_10.TenthActivity
+import com.example.andesiaapps.Home.Pertemuan_13.ThirteenthActivity
 import com.example.andesiaapps.Home.Pertemuan_5.FifthActivity
 import com.example.andesiaapps.Home.Pertemuan_7.SeventhActivity
 import com.example.andesiaapps.Home.Pertemuan_9.NinthActivity
@@ -63,6 +64,11 @@ class HomeFragment : Fragment() {
         // Tombol ke TenthActivity
         binding.btnToTenth.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
+        // Tombol ke ThirteenthActivity
+        binding.btnToThirteenth.setOnClickListener {
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
             startActivity(intent)
         }
         loadPhoto()
