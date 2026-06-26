@@ -26,6 +26,7 @@ class ThirdActivity : AppCompatActivity() {
                 Toast.makeText(this, "Notifikasi ditolak", Toast.LENGTH_SHORT).show()
             }
         }
+
     private lateinit var binding: ActivityThirdBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
