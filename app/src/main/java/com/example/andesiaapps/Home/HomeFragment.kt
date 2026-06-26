@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.andesiaapps.Home.Pertemuan_10.TenthActivity
 import com.example.andesiaapps.Home.Pertemuan_13.ThirteenthActivity
+import com.example.andesiaapps.Home.Pertemuan_2.SecondActivity
+import com.example.andesiaapps.Home.Pertemuan_3.ThirdActivity
 import com.example.andesiaapps.Home.Pertemuan_5.FifthActivity
 import com.example.andesiaapps.Home.Pertemuan_7.SeventhActivity
 import com.example.andesiaapps.Home.Pertemuan_9.NinthActivity
@@ -49,7 +51,11 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), FifthActivity::class.java)
             startActivity(intent)
         }
-
+        // Tombol ke FifthActivity
+        binding.btnToSecond.setOnClickListener {
+            val intent = Intent(requireContext(), SecondActivity::class.java)
+            startActivity(intent)
+        }
         // Tombol ke SeventhActivity
         binding.btnToSeventh.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
@@ -64,6 +70,11 @@ class HomeFragment : Fragment() {
         // Tombol ke TenthActivity
         binding.btnToTenth.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
+        // Tombol ke TenthActivity
+        binding.btnToThird.setOnClickListener {
+            val intent = Intent(requireContext(), ThirdActivity::class.java)
             startActivity(intent)
         }
         // Tombol ke ThirteenthActivity

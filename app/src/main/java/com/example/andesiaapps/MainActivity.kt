@@ -31,6 +31,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FifthActivity::class.java)
             startActivity(intent)
         }
+        // Tombol ke FifthActivity
+        binding.btnToFifth.setOnClickListener {
+            val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+        }
         // Tombol ke SeventhActivity
         binding.btnToSeventh.setOnClickListener {
             val intent = Intent(this, SeventhActivity::class.java)

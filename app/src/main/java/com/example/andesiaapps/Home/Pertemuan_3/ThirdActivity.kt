@@ -1,16 +1,31 @@
 package com.example.andesiaapps.Home.Pertemuan_3
 
+import android.Manifest
 import android.content.Intent
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.andesiaapps.R
 import com.example.andesiaapps.databinding.ActivityThirdBinding
+import com.example.andesiaapps.utils.NotificationHelper
+import com.example.andesiaapps.utils.PermissionHelper
+import com.example.andesiaapps.utils.ReminderHelper
 
 class ThirdActivity : AppCompatActivity() {
+
+    private val notificationPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                Toast.makeText(this, "Notifikasi diizinkan", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Notifikasi ditolak", Toast.LENGTH_SHORT).show()
+            }
+        }
     private lateinit var binding: ActivityThirdBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,14 +38,42 @@ class ThirdActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        if (PermissionHelper.isNotificationPermissionRequired()) {
+            val permission = Manifest.permission.POST_NOTIFICATIONS
+            if (!PermissionHelper.hasPermission(this, permission)) {
+                PermissionHelper.requestPermission(
+                    notificationPermissionLauncher,
+                    permission
+                )
+            }
+        }
         binding.btnKirim.setOnClickListener {
             //Mengambil value dari inputNama dan menampilkan di Logcat
-            val nomor = binding.InputNoTujuan.text
+            val noTujuan = binding.InputNoTujuan.text
 
-            Toast.makeText(this, "pesan dikirim ke nomor = $nomor", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "pesan dikirim ke nomor = $noTujuan", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ThirdResultActivity::class.java)
-            startActivity(intent)
+
+            NotificationHelper.showNotification(
+                this, //Jika panggil di fragment maka requireContext()
+                "Pesanan Anda",
+                "Halo $noTujuan, Pesanan Anda Sedang Diproses",
+                intent
+            )
+//            startActivity(intent)
+            val calendar = Calendar.getInstance().apply {
+                add(Calendar.MINUTE, 1) // Tambah 1 menit dari sekarang
+            }
+
+            ReminderHelper.setReminder(
+                context = this, //Jika panggil di fragment maka requireContext()
+                hour = calendar.get(Calendar.HOUR_OF_DAY),
+                minute = calendar.get(Calendar.MINUTE),
+                title = "Reminder 1 Menit",
+                message = "Halo $noTujuan, reminder ini muncul 1 menit setelah tombol ditekan",
+                targetActivity = ThirdResultActivity::class.java
+            )
+            Toast.makeText(this, "Silahkan tunggu 1 Menit untuk menerima Notifikasi...", Toast.LENGTH_SHORT).show()
+        }
         }
     }
-}

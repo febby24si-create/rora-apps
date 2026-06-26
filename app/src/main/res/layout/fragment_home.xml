@@ -236,6 +236,43 @@
                     app:iconTint="@color/colorPrimary"
                     app:layout_columnWeight="1"
                     app:strokeColor="@color/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToThird"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="16dp"
+                    android:text="Pertemuan 3"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="13sp"
+                    app:cornerRadius="14dp"
+                    app:icon="@drawable/ic_edit"
+                    app:iconGravity="top"
+                    app:iconPadding="8dp"
+                    app:iconTint="@color/colorPrimary"
+                    app:layout_columnWeight="1"
+                    app:strokeColor="@color/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToSecond"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="16dp"
+                    android:text="Pertemuan 2"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="13sp"
+                    app:cornerRadius="14dp"
+                    app:icon="@drawable/ic_add"
+                    app:iconGravity="top"
+                    app:iconPadding="8dp"
+                    app:iconTint="@color/colorPrimary"
+                    app:layout_columnWeight="1"
+                    app:strokeColor="@color/colorPrimary" />
+
             </androidx.gridlayout.widget.GridLayout>
 
             <!-- Cat Fact Card -->
